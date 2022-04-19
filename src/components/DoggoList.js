@@ -1,23 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import InfoCard from "./DogCard"
+import {Grid, Box, Stack} from '@mui/material'
 
-function DoggoList() {
-    const [doggos ,setDoggos] = useState([]) 
+function DoggoList({doggos, setDoggos}) {
+    
 
-    const itemToDisplay = doggos.map(doggo => <li key={doggo.id} className='list-item'><b>Dog Name</b> {doggo.name} <b>Age</b> {doggo.age} <b>BREED</b> {doggo.breed}</li>)
+    const itemToDisplay = doggos.map(doggo => (
+    <Grid item xs={3}>
 
-    useEffect(()=>{
-        fetch('http://localhost:9292/dogs')
-        .then(resp => resp.json())
-        .then(setDoggos)
-    },[])
+    <InfoCard key={doggo.id} name={doggo.name} age={doggo.age} breed={doggo.breed}></InfoCard>
+    </Grid>
+    ))
+
+    
     
     return (
         
         <>
         <h2>Doggo list here</h2>
-        <ul className='list-card'>
+        <Stack drection='row'>
+
+        <Grid direction='row' container spacing={4}>
             {itemToDisplay}
-        </ul>
+        </Grid>
+        </Stack>
         </>
     )
 }

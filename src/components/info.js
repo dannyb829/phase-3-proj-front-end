@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import DoggoList from './DoggoList';
 import LessonList from './LessonList';
 import TrainerList from './TrainerList';
@@ -6,21 +6,24 @@ import OwnersList from './OwnersList';
 
 function InfoSection({userName}) {
     const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
+    const [doggos ,setDoggos] = useState([]) 
+
+    useEffect(()=>{
+        fetch('http://localhost:9292/dogs')
+        .then(resp => resp.json())
+        .then(setDoggos)
+    },[])
 
     function displayData() {
         switch (dataToDisplay) {
             case 'trainer' :
               return <TrainerList/>;
-            break;  
             case 'lessons':
-             return (<LessonList/>);
-             break;
+             return (<LessonList doggos={doggos} setDoggos={setDoggos}/>);
             case 'doggos':
-             return (<DoggoList/>);
-             break;
+             return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
             case 'owners':
              return (<OwnersList/>);
-             break;
             default : 
              return (<h1>Loading</h1>)
 
@@ -34,9 +37,9 @@ function InfoSection({userName}) {
 
         return (
     <>
+            <h1>Hello {userName} THIS IS THE INFO PAGE!!!</h1>
         <div id='info-page'>
        
-            <h1>Hello {userName} THIS IS THE INFO PAGE!!!</h1>
             <nav>
                 <button name='trainer' onClick={changeDisplay}>Trainer</button>
                 <button name='lessons' onClick={changeDisplay}>Lessons</button>
