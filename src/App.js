@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Welcome from './components/welcome';
+import { useState } from 'react'
+import InfoSection from './components/info';
+import About from './components/about';
 
 function App() {
+
+  const [userName ,setUserName] = useState('') 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Welcome userName={userName} setUserName={setUserName}/>}>Here goes the welcome page component</Route>
+      <Route path='/info' element={<InfoSection userName={userName}/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
+    </Routes>
+
   );
 }
 
