@@ -14,7 +14,7 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
 
 
     useEffect(() => {
-        fetch('http://localhost:9292/dogs')
+        fetch(`http://localhost:9292/dogs/${user.category}/${user.name}`)
             .then(resp => resp.json())
             .then(setDoggos)
     }, [])
@@ -24,7 +24,7 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
             case 'trainer' :
                 return <TrainerList user={user} trainers={trainers} setTrainers={setTrainers} />;
             case 'lessons':
-                return (<Lesson doggos={doggos} setDoggos={setDoggos}/>);
+                return (<Lesson doggos={doggos} setDoggos={setDoggos} user={user}/>);
             case 'doggos':
                 return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
             case 'owners':

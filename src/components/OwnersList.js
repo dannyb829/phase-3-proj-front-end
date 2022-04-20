@@ -1,17 +1,26 @@
 import { useEffect, useState } from "react";
+import { Grid, Box, Stack } from '@mui/material'
+import OwnerCard from "./MUI-Cards/OwnerCard";
 
-function OwnersList({owners,setOwners}) {
-    
+function OwnersList({ owners, setOwners }) {
 
-    const itemToDisplay = owners.map(owner => <li key={owner.id} className='list-item'><b>Owner</b> {owner.name} <b>Address</b> {owner.address}</li>)
-    
+
+    const itemToDisplay = owners.map(owner => (
+        <Grid item xs={3}>
+            <OwnerCard key={owner.id} name={owner.name} address={owner.address}></OwnerCard>
+        </Grid>
+
+    ))
+
 
     return (
         <>
-        <h2>Owner list here</h2>
-         <ul className='list-card'>
-            {itemToDisplay}
-        </ul>
+            <h2>Owner list here</h2>
+            <Stack driection='row'>
+                <Grid direction='row' container spacing={4}>
+                    {itemToDisplay}
+                </Grid>
+            </Stack>
         </>
     )
 }

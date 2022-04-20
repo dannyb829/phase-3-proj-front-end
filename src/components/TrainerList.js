@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import {Grid, Box, Stack} from '@mui/material'
+import TrainerCard from "./MUI-Cards/TrainerCard";
 
 function TrainerList({ user, trainers }) {
     
@@ -8,14 +10,20 @@ function TrainerList({ user, trainers }) {
         .then(console.log)
     },[])
 
-    const itemToDisplay = trainers.map(trainer => <li key={trainer.id} className='list-item'><b>TRAINER</b> {trainer.name} <b>SERVICE</b> {trainer.service}</li>)
+    const itemToDisplay = trainers.map(trainer => (
+        <Grid item xs={3}>
+            <TrainerCard key={trainer.id} name={trainer.name} service={trainer.service}></TrainerCard>
+        </Grid>
+    ))
 
     return (
         <>
             <h2>Trainer list here</h2>
-            <ul className='list-card'>
+            <Stack direction='row'>
+                <Grid direction='row' container spacing={3}>
                 {itemToDisplay}
-            </ul>
+                </Grid>
+            </Stack>
         </>
     )
 }

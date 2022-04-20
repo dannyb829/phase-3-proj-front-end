@@ -5,7 +5,7 @@ import LessonList from "./LessonsList";
 import AppointmentList from "./AppointmentList";
 
 
-function Lesson({doggos, setDoggos}) {
+function Lesson({doggos, setDoggos, user}) {
     const [lessons ,setLessons] = useState([]) 
     const [options ,setOptions] = useState([]) 
   
@@ -14,13 +14,13 @@ function Lesson({doggos, setDoggos}) {
 
 
     useEffect(()=>{
-        fetch('http://localhost:9292/lessons')
+        fetch(`http://localhost:9292/lessons/${user.category}/${user.name}`)
         .then(resp => resp.json())
         .then(data => setLessons(data))
         fetch('http://localhost:9292/trainers')
         .then(resp => resp.json())
         .then(data=> setOptions(data.map((t)=> <option key={t.id} value={t.name}>{t.name}</option>)))
-        fetch('http://localhost:9292/upcoming-appointments')
+        fetch(`http://localhost:9292/upcoming-appointments/${user.category}/${user.name}`)
         .then(resp => resp.json())
         .then(setAppointments)
     },[])

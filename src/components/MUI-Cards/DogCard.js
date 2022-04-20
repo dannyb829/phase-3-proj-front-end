@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
-const InfoCard = ({name , age, breed}) => {
+const DogCard = ({name , age, breed}) => {
 
   return (
     <Card variant= "outlined" sx={{ maxWidth: "auto" }}>
@@ -36,4 +36,4 @@ const InfoCard = ({name , age, breed}) => {
 }
 
 
-export default InfoCard
+export default DogCard

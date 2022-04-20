@@ -20,12 +20,12 @@ function Welcome({ user, setUser, trainers, setTrainers, owners, setOwners }) {
             <form onSubmit={()=>navigate('/info')}>
                 <select name='category' onChange={handleUserChange} value={category} defaultValue='DEFAULT'>
                     <option value='DEFAULT'>Select category</option>
-                    <option value='owner'>Owner</option>
-                    <option value='trainer'>Trainer</option>
+                    <option value='Owner'>Owner</option>
+                    <option value='Trainer'>Trainer</option>
                 </select>
                 <select name='name' onChange={handleUserChange} defaultValue='DEFAULT' value={name}>
                     <option value='DEFAULT'>Select name</option>
-                    {category === 'trainer' ? trainerNames : ownerNames}
+                    {category === 'Trainer' ? trainerNames : ownerNames}
                 </select>
                 <input type='submit'></input>
             </form>
