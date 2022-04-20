@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom'
 import { Typography, Box, Tab, Tabs } from "@mui/material"
 import { useState, useEffect } from 'react'
 import DoggoList from './DoggoList';
-import LessonList from './LessonList';
+import Lesson from './Lessons';
 import TrainerList from './TrainerList';
 import OwnersList from './OwnersList';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
+function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
+    const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
+    const [doggos ,setDoggos] = useState([]) 
 
-export default function InfoSection({ userName }) {
-    const [dataToDisplay, setDataToDisplay] = useState('trainer')
-    const [doggos, setDoggos] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:9292/dogs')
@@ -21,15 +21,15 @@ export default function InfoSection({ userName }) {
 
     function displayData() {
         switch (dataToDisplay) {
-            case 'trainer':
-                return <TrainerList />;
+            case 'trainer' :
+                return <TrainerList user={user} trainers={trainers} setTrainers={setTrainers} />;
             case 'lessons':
-                return (<LessonList doggos={doggos} setDoggos={setDoggos} />);
+                return (<Lesson doggos={doggos} setDoggos={setDoggos}/>);
             case 'doggos':
-                return (<DoggoList doggos={doggos} setDoggos={setDoggos} />);
+                return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
             case 'owners':
-                return (<OwnersList />);
-            default:
+                return (<OwnersList owners={owners} setOwners={setOwners}/>);
+            default : 
                 return (<h1>Loading</h1>)
 
         }
@@ -48,7 +48,7 @@ export default function InfoSection({ userName }) {
                         noWrap
                         sx={{ height: 1, pr: 2 }}
                     >
-                        <h1>Hello {userName}</h1>
+                        <h1>Hello {user.name}</h1>
                     </Typography>
                 </Box>
                 <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='trainer' onClick={changeDisplay}>Trainer</Button>

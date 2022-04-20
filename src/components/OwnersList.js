@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 
-function OwnersList() {
-    const [owners ,setOwners] = useState([]) 
+function OwnersList({owners,setOwners}) {
+    
 
     const itemToDisplay = owners.map(owner => <li key={owner.id} className='list-item'><b>Owner</b> {owner.name} <b>Address</b> {owner.address}</li>)
-    useEffect(()=>{
-        fetch('http://localhost:9292/owners')
-        .then(resp => resp.json())
-        .then(setOwners)
-    },[])
+    
 
     return (
         <>
