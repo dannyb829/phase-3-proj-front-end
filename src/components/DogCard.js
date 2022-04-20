@@ -9,7 +9,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 const InfoCard = ({name , age, breed}) => {
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card variant= "outlined" sx={{ maxWidth: "auto" }}>
       <CardActionArea>
         <CardMedia
           component="img"

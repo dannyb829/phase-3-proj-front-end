@@ -1,33 +1,38 @@
-import {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import { Typography, Box, Tab, Tabs } from "@mui/material"
+import { useState, useEffect } from 'react'
 import DoggoList from './DoggoList';
 import LessonList from './LessonList';
 import TrainerList from './TrainerList';
 import OwnersList from './OwnersList';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
-function InfoSection({userName}) {
-    const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
-    const [doggos ,setDoggos] = useState([]) 
 
-    useEffect(()=>{
+export default function InfoSection({ userName }) {
+    const [dataToDisplay, setDataToDisplay] = useState('trainer')
+    const [doggos, setDoggos] = useState([])
+
+    useEffect(() => {
         fetch('http://localhost:9292/dogs')
-        .then(resp => resp.json())
-        .then(setDoggos)
-    },[])
+            .then(resp => resp.json())
+            .then(setDoggos)
+    }, [])
 
     function displayData() {
         switch (dataToDisplay) {
-            case 'trainer' :
-              return <TrainerList/>;
+            case 'trainer':
+                return <TrainerList />;
             case 'lessons':
-             return (<LessonList doggos={doggos} setDoggos={setDoggos}/>);
+                return (<LessonList doggos={doggos} setDoggos={setDoggos} />);
             case 'doggos':
-             return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
+                return (<DoggoList doggos={doggos} setDoggos={setDoggos} />);
             case 'owners':
-             return (<OwnersList/>);
-            default : 
-             return (<h1>Loading</h1>)
+                return (<OwnersList />);
+            default:
+                return (<h1>Loading</h1>)
 
-        } 
+        }
 
     }
 
@@ -35,21 +40,23 @@ function InfoSection({userName}) {
         setDataToDisplay(e.target.name)
     }
 
-        return (
-    <>
-            <h1>Hello {userName} THIS IS THE INFO PAGE!!!</h1>
-        <div id='info-page'>
-       
-            <nav>
-                <button name='trainer' onClick={changeDisplay}>Trainer</button>
-                <button name='lessons' onClick={changeDisplay}>Lessons</button>
-                <button name='doggos' onClick={changeDisplay}>Doggos</button>
-                <button name='owners' onClick={changeDisplay}>Owners</button>
-            </nav>
-            {displayData()}
-        </div>
-        </>
-    )
+    return (
+        <Stack direction="row">
+            <Box id='info-page' sx={{ bgcolor: 'white', ml: 2, pr: 2, width: 'fit-content', borderRadius: 2 }}>
+                <Box component={Link} label="Home" to="/" style={{ height: '50px' }}>
+                    <Typography
+                        noWrap
+                        sx={{ height: 1, pr: 2 }}
+                    >
+                        <h1>Hello {userName}</h1>
+                    </Typography>
+                </Box>
+                <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='trainer' onClick={changeDisplay}>Trainer</Button>
+                <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='lessons' onClick={changeDisplay}>Lessons</Button>
+                <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='doggos' onClick={changeDisplay}>Doggos</Button>
+                <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='owners' onClick={changeDisplay}>Owners</Button>
+                {displayData()}
+            </Box>
+        </Stack>
+    );
 }
-
-export default InfoSection
