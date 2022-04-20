@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
 import DoggoList from './DoggoList';
-import LessonList from './LessonList';
+import Lesson from './Lessons';
 import TrainerList from './TrainerList';
 import OwnersList from './OwnersList';
 
-function InfoSection({userName}) {
+function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
     const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
     const [doggos ,setDoggos] = useState([]) 
 
@@ -17,15 +17,15 @@ function InfoSection({userName}) {
     function displayData() {
         switch (dataToDisplay) {
             case 'trainer' :
-              return <TrainerList/>;
+                return <TrainerList user={user} trainers={trainers} setTrainers={setTrainers} />;
             case 'lessons':
-             return (<LessonList doggos={doggos} setDoggos={setDoggos}/>);
+                return (<Lesson doggos={doggos} setDoggos={setDoggos}/>);
             case 'doggos':
-             return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
+                return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
             case 'owners':
-             return (<OwnersList/>);
+                return (<OwnersList owners={owners} setOwners={setOwners}/>);
             default : 
-             return (<h1>Loading</h1>)
+                return (<h1>Loading</h1>)
 
         } 
 
@@ -37,9 +37,9 @@ function InfoSection({userName}) {
 
         return (
     <>
-            <h1>Hello {userName} THIS IS THE INFO PAGE!!!</h1>
+            <h1>Hello {user.name} THIS IS THE INFO PAGE!!!</h1>
         <div id='info-page'>
-       
+
             <nav>
                 <button name='trainer' onClick={changeDisplay}>Trainer</button>
                 <button name='lessons' onClick={changeDisplay}>Lessons</button>
@@ -53,3 +53,4 @@ function InfoSection({userName}) {
 }
 
 export default InfoSection
+
