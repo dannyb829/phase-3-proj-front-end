@@ -60,3 +60,5 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
         </Stack>
     );
 }
+
+export default InfoSection
