@@ -45,7 +45,7 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
 
     return (
         <Stack direction="row">
-            <Box id='info-page' sx={{ bgcolor: 'white', ml: 2, pr: 2, width: 'fit-content', borderRadius: 2 }}>
+            <Box id='info-page' sx={{ ml: 2, pr: 2, width: 'fit-content', borderRadius: 2}}>
                 <Box component={Link} label="Home" to="/" style={{ height: '50px' }}>
                     <Typography
                         noWrap

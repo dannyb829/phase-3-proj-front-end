@@ -10,7 +10,8 @@ white
 }
 
 body {
-  background-color: #FFFFFF;
+  background: url(https://c4.wallpaperflare.com/wallpaper/632/226/393/dog-backgrounds-for-desktop-hd-backgrounds-wallpaper-preview.jpg);
+  /* background-color: #FFFFFF; */
   background-size: cover;
   background-attachment: fixed;
 }
@@ -21,14 +22,14 @@ body {
   background-attachment: fixed;
 }
 
-form {
+/* form {
   position: absolute;
   margin-top: 30%;
   margin-left: 32%;
-}
+} */
 
 #info-page {
-  background-color: #B0D0D3;
+  /* background-color: #B0D0D3; */
   /* /////////REMOVE THIS COLOR//////////// */
   width: 100%;
   height: 100%;
