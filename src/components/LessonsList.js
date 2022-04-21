@@ -1,11 +1,11 @@
 import { Grid, Stack } from '@mui/material'
 import LessonCard from './MUI-Cards/LessonCard'
 
-function LessonList({ lessons, setLessons }) {
+function LessonList({ lessons, setLessons, user }) {
 
     const itemToDisplay = lessons.map(lesson => (
         <Grid item>
-            <LessonCard key={lesson.id} setLessons={setLessons} id={lesson.id} title={lesson.title} content={lesson.content} structure={lesson.structure} />
+            <LessonCard key={lesson.id} user={user} setLessons={setLessons} id={lesson.id} title={lesson.title} content={lesson.content} structure={lesson.structure} />
         </Grid>
     ))
 

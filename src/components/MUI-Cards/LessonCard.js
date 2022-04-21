@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import UpdateLessonForm from './UpdateLessonForm';
 
 
-const LessonCard = ({id, title, content, structure, setLessons }) => {
+const LessonCard = ({id, title, content, structure, setLessons, user }) => {
 
     return (
         <Card variant="outlined" sx={{ maxWidth: "auto" }}>
@@ -28,7 +28,9 @@ const LessonCard = ({id, title, content, structure, setLessons }) => {
                 {/* <Button size="small" color="primary">
                     Edit Lesson
                 </Button> */}
-                <UpdateLessonForm id={id} title={title} setLessons={setLessons}/>
+                {user.category === 'Trainer' ? (
+                <UpdateLessonForm id={id} title={title} setLessons={setLessons}/> ) : null
+                }
             </CardActions>
         </Card>
     );

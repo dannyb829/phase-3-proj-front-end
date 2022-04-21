@@ -4,9 +4,19 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const TrainerCard = ({name , service}) => {
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+};
+
 
   return (
     <Card variant= "outlined" sx={{ maxWidth: "auto" }}>
@@ -27,9 +37,22 @@ const TrainerCard = ({name , service}) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Contact
-        </Button>
+      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMore />}
+                        aria-controls="panel1bh-content"
+                        id="panel1bh-header"
+                    >
+                        <Typography sx={{ width: '100%', flexShrink: 0 }}>
+                            Contact Trainer
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            1-347-555-5555
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
       </CardActions>
     </Card>
   );

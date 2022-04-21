@@ -30,10 +30,10 @@ function Lesson({doggos, setDoggos, user}) {
     return (
         <>
 
-        <LessonList lessons={lessons} setLessons={setLessons}/>
+        <LessonList lessons={lessons} setLessons={setLessons} user={user}/>
         <LessonForm options={options} setLessons={setLessons}/>
         <AppointmentForm doggos={doggos} lessons={lessons}/>
-        <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments}/>
+        <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments} setAppointments={setAppointments} user={user}/>
         </>
     )
 }

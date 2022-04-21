@@ -22,12 +22,20 @@ const bull = (
     </Box>
 );
 
-export default function AppointmentCard({ date, lesson, dogName }) {
+export default function AppointmentCard({ setAppointments, id, date, lesson, dogName, user }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+
+    const handleDelete = () => {
+        if (window.confirm('Cancel this appointment?')) {
+            fetch(`http://localhost:9292/appointments/${id}`, { method: 'DELETE' })
+                .then(resp => resp.json)
+                .then(app => setAppointments(prev => prev.filter(a => a.id !== id)))
+        }
+    }
 
 
 
@@ -49,6 +57,7 @@ export default function AppointmentCard({ date, lesson, dogName }) {
             </CardContent>
             <CardActions>
                 {/* <Button size="small">Contact owner</Button> */}
+                {user.category === 'Trainer' ? (
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
                         expandIcon={<ExpandMore />}
@@ -64,8 +73,8 @@ export default function AppointmentCard({ date, lesson, dogName }) {
                             1-243-534-3255
                         </Typography>
                     </AccordionDetails>
-                    <Button>Cancel Appt</Button>
-                </Accordion>
+                    <Button onClick={handleDelete}>Cancel Appt</Button>
+                </Accordion>) : <Button onClick={handleDelete}>Cancel Appt</Button> }
             </CardActions>
         </Card>
     );
