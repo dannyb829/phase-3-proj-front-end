@@ -5,7 +5,7 @@ import TrainerCard from "./MUI-Cards/TrainerCard";
 function TrainerList({ user, trainers }) {
     
     useEffect(()=>{
-        fetch(user.category === 'owner' ? `http://localhost:9292/trainers/${user.name}` : 'http://localhost:9292/trainers/')
+        fetch(user.category === 'owner' ? `http://localhost:9292/trainers/${user.name}` : 'http://localhost:9292/trainers')
         .then(resp => resp.json())
         .then(console.log)
     },[])
