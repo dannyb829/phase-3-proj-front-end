@@ -4,9 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import DogAppointments from './DogAppointmentsDiologue';
 
 
-const DogCard = ({name , age, breed}) => {
+const DogCard = ({ id, name , age, breed, trainers }) => {
 
   return (
     <Card variant= "outlined" sx={{ maxWidth: "auto" }}>
@@ -27,9 +28,7 @@ const DogCard = ({name , age, breed}) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          View upcoming lessons
-        </Button>
+        <DogAppointments id={id} trainers={trainers}/>
       </CardActions>
     </Card>
   );

@@ -46,7 +46,7 @@ function Lesson({ doggos, setDoggos, user }) {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Item>
-                        <LessonList lessons={lessons} setLessons={setLessons} />
+                        <LessonList lessons={lessons} setLessons={setLessons} user={user}/>
                     </Item>
                 </Grid>
                 <Grid item xs={9} direction='row'>
@@ -61,7 +61,7 @@ function Lesson({ doggos, setDoggos, user }) {
                 </Grid>
                 <Grid item xs={12}>
                     <Item>
-                        <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments} />
+                        <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments} setAppointments={setAppointments} user={user}/>
                     </Item>
                 </Grid>
             </Grid>

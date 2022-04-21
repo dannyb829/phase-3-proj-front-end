@@ -50,7 +50,7 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
+        Edit this lesson
       </Button>
       <Dialog id='my-form' open={open} onClose={handleClose} onSubmit={console.log}>
         <DialogTitle>Update {title}</DialogTitle>

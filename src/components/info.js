@@ -29,7 +29,7 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
             case 'lessons':
                 return (<Lesson doggos={doggos} setDoggos={setDoggos} user={user}/>);
             case 'doggos':
-                return (<DoggoList doggos={doggos} setDoggos={setDoggos}/>);
+                return (<DoggoList trainers={trainers} doggos={doggos} setDoggos={setDoggos}/>);
             case 'owners':
                 return (<OwnersList owners={owners} setOwners={setOwners}/>);
             default : 
