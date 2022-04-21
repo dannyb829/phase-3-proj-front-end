@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Typography, Box, Tab, Tabs } from "@mui/material"
 import { useState, useEffect } from 'react'
 import DoggoList from './DoggoList';
@@ -12,8 +12,11 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
     const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
     const [doggos ,setDoggos] = useState([]) 
 
+    const navigate = useNavigate()
+
 
     useEffect(() => {
+        if (!user.name) navigate('/')
         fetch(`http://localhost:9292/dogs/${user.category}/${user.name}`)
             .then(resp => resp.json())
             .then(setDoggos)

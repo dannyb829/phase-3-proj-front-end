@@ -12,12 +12,16 @@ function Welcome({ user, setUser, trainers, setTrainers, owners, setOwners }) {
         setUser(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
-
+    function handleUserSubmit(e) {
+        e.preventDefault()
+        if (!user.name && !user.category) alert('please select a category and user!')
+        else navigate('/info')
+    }
 
     return (
         <div id='welcome-page'>
             <img id='home-logo' style={{ width: '40em' }} src='/images/Puppy.png' alt='Dog 101' />
-            <form onSubmit={()=>navigate('/info')}>
+            <form onSubmit={handleUserSubmit}>
                 <select name='category' onChange={handleUserChange} value={category} defaultValue='DEFAULT'>
                     <option value='DEFAULT'>Select category</option>
                     <option value='Owner'>Owner</option>
