@@ -43,23 +43,27 @@ function Lesson({ doggos, setDoggos, user }) {
 
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
+            <Grid container spacing={2} direction="column"
+  alignItems="center"
+  justifyContent="center"
+  
+  >
+                <Grid item sx={{ p: 1, m: 1, width: 3/4}}>
                     <Item>
                         <LessonList lessons={lessons} setLessons={setLessons} user={user}/>
                     </Item>
                 </Grid>
-                <Grid item xs={9} direction='row'>
+                <Grid item sx={{ m: 1, width: 3/4}} direction='row'>
                     <Item>
                         <LessonForm options={options} setLessons={setLessons} />
                     </Item>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item sx={{ m: 1, width: 3/4}}>
                     <Item>
                         <AppointmentForm doggos={doggos} lessons={lessons} />
                     </Item>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item sx={{ m: 1, width: 3/4}}>
                     <Item>
                         <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments} setAppointments={setAppointments} user={user}/>
                     </Item>
