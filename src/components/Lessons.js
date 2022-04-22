@@ -48,24 +48,24 @@ function Lesson({ doggos, setDoggos, user }) {
   justifyContent="center"
   
   >
-                <Grid item sx={{ p: 1, m: 1, width: 3/4}}>
-                    <Item>
+                <Grid sx={{ p: 1, m: 1, width: 3/4}}>
+                    <Item sx={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
                         <LessonList lessons={lessons} setLessons={setLessons} user={user}/>
                     </Item>
                 </Grid>
                 {user.category === 'Trainer' ? (
                 <Grid item sx={{ m: 1, width: 3/4}} direction='row'>
-                    <Item>
+                    <Item sx={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
                         <LessonForm options={options} setLessons={setLessons} />
                     </Item>
                 </Grid>) : null}
                 <Grid item sx={{ m: 1, width: 3/4}}>
-                    <Item>
+                    <Item sx={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
                         <AppointmentForm setAppointments={setAppointments} doggos={doggos} lessons={lessons} />
                     </Item>
                 </Grid>
                 <Grid item sx={{ m: 1, width: 3/4}}>
-                    <Item>
+                    <Item sx={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
                         <AppointmentList doggos={doggos} lessons={lessons} appointments={appointments} setAppointments={setAppointments} user={user}/>
                     </Item>
                 </Grid>
