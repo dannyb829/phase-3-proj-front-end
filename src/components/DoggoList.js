@@ -5,8 +5,8 @@ import {Grid, Stack} from '@mui/material'
 function DoggoList({doggos, trainers}) {
 
     const itemToDisplay = doggos.map(doggo => (
-        <Grid item xs={3}>
-            <DogCard key={doggo.id} trainers={trainers} id={doggo.id} name={doggo.name} age={doggo.age} breed={doggo.breed}></DogCard>
+        <Grid  key={doggo.id} item xs={3}>
+            <DogCard trainers={trainers} id={doggo.id} name={doggo.name} age={doggo.age} breed={doggo.breed} image={doggo.image}></DogCard>
         </Grid>
     ))
 

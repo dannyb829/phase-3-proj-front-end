@@ -32,6 +32,12 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
         setNewApptForm({ ...newApptForm, [e.target.name]: e.target.value })
     }
 
+    function handleFormUpdate(app) {
+        setAppointments(prev => [...prev, app])
+        alert('Appointment created!')
+        setNewApptForm(apptForm)
+    }
+
 
     function handleSubmitAppt(e) {
         e.preventDefault()
@@ -41,8 +47,7 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
             body: JSON.stringify(newApptForm)
         })
             .then(resp => resp.json())
-            .then(app => setAppointments(prev => [...prev, app]))
-        e.target.reset()
+            .then(handleFormUpdate)
     }
 
     return (
@@ -100,49 +105,17 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
                             </Grid>
 
                             <Grid item sm={4}>
-                            <input name='date' type='date' onChange={handleApptForm} value={newApptForm.date}></input>
-
-                            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <DatePicker
-                                    label="Date"
-                                    onChange={handleApptForm} 
-                                    value={newApptForm.date}
-                                    renderInput={(params) => <TextField {...params} />}
-                                />
-                            </LocalizationProvider> */}
+                                <input name='date' type='date' onChange={handleApptForm} value={newApptForm.date}></input>
                             </Grid>
 
                         </Grid>
                     </Grid>
                     <Grid item sm={4}>
-                        
+
                         <Button variant="contained" onClick={handleSubmitAppt} style={{ backgroundColor: "#3bb611" }}>Submit</Button>
                     </Grid>
                 </div>
             </Box>
-
-
-
-
-            {/* <div className='list-card'>
-                <form id='sign-up-lesson' onSubmit={handleSubmitAppt}>
-                    <h3>Sign up for a lesson</h3>
-
-
-                    <select defaultValue='DEFAULT' name='lesson' onChange={handleApptForm} value={newApptForm.lesson}>
-                        <option value='DEFAULT'>Select Lesson</option>
-                        {lessons.map((lesson) => <option key={lesson.id} value={lesson.title}>{lesson.title}</option>)}
-                    </select>
-                    <select defaultValue='DEFAULT' name='dog' onChange={handleApptForm} value={newApptForm.dog}>
-                        <option value='DEFAULT'>Select Dog</option>
-                        {doggos.map((dog) => <option key={dog.id} value={dog.name}>{dog.name}</option>)}
-                    </select>
-                    <input name='date' type='date' onChange={handleApptForm} value={newApptForm.date}></input>
-                    <input type='submit'></input>
-                </form>
-
-
-            </div> */}
         </>
     )
 }

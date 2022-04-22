@@ -4,8 +4,8 @@ import LessonCard from './MUI-Cards/LessonCard'
 function LessonList({ lessons, setLessons, user }) {
 
     const itemToDisplay = lessons.map(lesson => (
-        <Grid item xs={4}>
-            <LessonCard key={lesson.id} user={user} setLessons={setLessons} id={lesson.id} title={lesson.title} content={lesson.content} structure={lesson.structure} />
+        <Grid  key={lesson.id} item xs={4}>
+            <LessonCard user={user} setLessons={setLessons} id={lesson.id} title={lesson.title} content={lesson.content} structure={lesson.structure} />
         </Grid>
     ))
 

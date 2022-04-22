@@ -4,10 +4,11 @@ import OwnerCard from "./MUI-Cards/OwnerCard";
 
 function OwnersList({ owners, setOwners }) {
 
+    console.log(owners)
 
     const itemToDisplay = owners.map(owner => (
-        <Grid item xs={3}>
-            <OwnerCard key={owner.id} name={owner.name} address={owner.address}></OwnerCard>
+        <Grid key={owner.id} item xs={3}>
+            <OwnerCard name={owner.name} address={owner.address} image={owner.image}></OwnerCard>
         </Grid>
 
     ))

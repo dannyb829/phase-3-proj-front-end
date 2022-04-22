@@ -17,12 +17,12 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
   const [updateForm, setUpdateForm] = React.useState({
     title: '',
     content: '',
-    structure:''
+    structure: ''
   });
 
 
   const handleChange = (event) => {
-    setUpdateForm(prev => ({...prev, [event.target.name]: event.target.value}));
+    setUpdateForm(prev => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
   const handleClickOpen = () => {
@@ -32,19 +32,20 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const handleSubmit = () => {
-    fetch(`http://localhost:9292/lessons/${id}`,{
+    fetch(`http://localhost:9292/lessons/${id}`, {
       method: 'PATCH',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(updateForm)})
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateForm)
+    })
       .then(resp => resp.json())
       .then(lesson => setLessons(prev => prev.map(l => {
         if (l.id === id) return lesson
         else return l
       }))
       )
-    handleClose()  
+    handleClose()
   }
 
   return (
@@ -56,7 +57,7 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
         <DialogTitle>Update {title}</DialogTitle>
         <DialogContent>
           <TextField
-            style={{marginBottom:'1em'}}
+            style={{ marginBottom: '1em' }}
             autoFocus
             margin="dense"
             id="name"
@@ -69,7 +70,7 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
             onChange={handleChange}
           />
           <TextField
-            style={{bottom: '1em'}}
+            style={{ bottom: '1em' }}
             margin="dense"
             id="name"
             label="Lesson Content"
@@ -85,7 +86,6 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={updateForm.structure}
               label="Age"
               name='structure'
               value={updateForm.structure}
