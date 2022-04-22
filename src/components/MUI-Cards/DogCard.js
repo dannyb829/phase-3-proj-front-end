@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import DogAppointments from './DogAppointmentsDiologue';
 
 
-const DogCard = ({ id, name , age, breed, trainers }) => {
+const DogCard = ({ id, name , age, breed, trainers, image }) => {
 
   return (
     <Card variant= "outlined" sx={{ maxWidth: "auto" }}>
@@ -15,7 +15,7 @@ const DogCard = ({ id, name , age, breed, trainers }) => {
         <CardMedia
           component="img"
           height="140"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFlaC6XAwdWHsrVlcAXeiDbdRwAUrXptX8JA&usqp=CAU"
+          image={image}
           alt="Dog in a snood"
         />
         <CardContent>

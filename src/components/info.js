@@ -49,12 +49,7 @@ function InfoSection({ user, trainers, setTrainers, owners, setOwners }) {
         <Stack direction="row">
             <Box id='info-page' sx={{ ml: 2, pr: 2, width: 'fit-content', borderRadius: 2}}>
                 <Box component={Link} label="Home" to="/" style={{ height: '50px' }}>
-                    <Typography
-                        noWrap
-                        sx={{ height: 1, pr: 2 }}
-                    >
                         <h1>Hello {user.name}</h1>
-                    </Typography>
                 </Box>
                 <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='trainer' onClick={changeDisplay}>Trainer</Button>
                 <Button variant="contained" style={{ backgroundColor: "#4CB944" }} name='lessons' onClick={changeDisplay}>Lessons</Button>

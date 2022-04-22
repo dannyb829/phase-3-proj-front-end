@@ -41,7 +41,7 @@ function LessonForm({ options, setLessons }) {
 
 
     return (
-        
+
         <Grid container direction="row" justifyContent="center" alignItems="center" spacing={1}>
 
             <Box
@@ -56,11 +56,11 @@ function LessonForm({ options, setLessons }) {
             >
 
                 <div>
-                <Grid container spacing={1}>
-                <Grid item sm={8} >
-                    <Typography style={{ fontSize: "2rem" }}>Create a New Lesson</Typography>
-                </Grid>
-                </Grid>
+                    <Grid container spacing={1}>
+                        <Grid item sm={8} >
+                            <Typography style={{ fontSize: "2rem" }}>Create a New Lesson</Typography>
+                        </Grid>
+                    </Grid>
                     <Grid container spacing={3}>
                         <Grid item sm={4}>
                             <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -73,7 +73,7 @@ function LessonForm({ options, setLessons }) {
                                     onChange={handleLessonForm}
                                     defaultValue='DEFAULT'
                                     value={newLesson.trainer}
-                                    // style={{ backgroundColor: "#88aacf" }}
+                                // style={{ backgroundColor: "#88aacf" }}
                                 >
                                     {options}
                                 </Select>
@@ -91,29 +91,32 @@ function LessonForm({ options, setLessons }) {
                                 name='title'
                                 onChange={handleLessonForm}
                                 value={newLesson.title}
-                                // style={{ backgroundColor: "#88aacf" }}
+                            // style={{ backgroundColor: "#88aacf" }}
                             />
                         </Grid>
 
                         <Grid item sm={4}>
-                            <TextField
-                                id="filled-textarea"
-                                label="Structure"
-                                placeholder="Placeholder"
-                                multiline
-                                variant="filled"
-                                name='structure'
-                                onChange={handleLessonForm}
-                                value={newLesson.structure}
-                                // style={{ backgroundColor: "#88aacf" }}
-                                
-                            />
+                            <FormControl sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="demo-simple-select-label">Struc</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Age"
+                                    name='structure'
+                                    value={newLesson.structure}
+                                    onChange={handleLessonForm}
+                                >
+                                    <MenuItem value='group' >Group</MenuItem>
+                                    <MenuItem value='private' >Private</MenuItem>
+                                </Select>
+                                {/* <FormHelperText>Trainer</FormHelperText> */}
+                            </FormControl>
                         </Grid>
                     </Grid>
 
-                    <Grid item  justifyContent='center' >
+                    <Grid item justifyContent='center' >
                         <TextField
-                            style ={{width: '100%', color: "white"}}
+                            style={{ width: '100%', color: "white" }}
                             // in style if needed backgroundColor: "#88aacf",
                             id="filled-multiline-static"
                             label="Content"
@@ -133,8 +136,9 @@ function LessonForm({ options, setLessons }) {
                 </div>
             </Box>
         </Grid>
-    
+
     )
 }
 
 export default LessonForm
+

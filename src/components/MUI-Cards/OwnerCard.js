@@ -9,7 +9,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-const OwnerCard = ({name , address}) => {
+const OwnerCard = ({name , address, image}) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -22,7 +22,7 @@ const OwnerCard = ({name , address}) => {
         <CardMedia
           component="img"
           height="140"
-          image="https://i.pinimg.com/originals/0e/2e/9d/0e2e9dc33751fbf4a708c1ecbdaf2d43.png"
+          image={image}
           alt="Funny guy"
         />
         <CardContent>
