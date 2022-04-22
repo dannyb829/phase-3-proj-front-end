@@ -32,7 +32,7 @@ function Welcome({ user, setUser, trainers, setTrainers, owners, setOwners }) {
     
     return (
         <div >
-            <Card sx={{ margin: 'auto', position: 'relative', top: '3em', maxWidth: 800, minHeight: 700 }}>
+            <Card sx={{ margin: 'auto', position: 'relative', top: '3em', maxWidth: 800, minHeight: 700, backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
                 <CardMedia
                     component="img"
                     height="400"
