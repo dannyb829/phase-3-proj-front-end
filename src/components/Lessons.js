@@ -49,14 +49,15 @@ function Lesson({ doggos, setDoggos, user }) {
                         <LessonList lessons={lessons} setLessons={setLessons} user={user}/>
                     </Item>
                 </Grid>
+                {user.category === 'Trainer' ? (
                 <Grid item xs={9} direction='row'>
                     <Item>
                         <LessonForm options={options} setLessons={setLessons} />
                     </Item>
-                </Grid>
+                </Grid>) : null}
                 <Grid item xs={8}>
                     <Item>
-                        <AppointmentForm doggos={doggos} lessons={lessons} />
+                        <AppointmentForm setAppointments={setAppointments} doggos={doggos} lessons={lessons} />
                     </Item>
                 </Grid>
                 <Grid item xs={12}>

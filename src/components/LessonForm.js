@@ -119,7 +119,6 @@ function LessonForm({ options, setLessons }) {
                             label="Content"
                             multiline
                             rows={4}
-                            defaultValue="Content"
                             variant="filled"
                             name='content'
                             onChange={handleLessonForm}

@@ -81,7 +81,7 @@ export default function UpdateLessonForm({ id, title, setLessons }) {
             onChange={handleChange}
           />
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <InputLabel id="demo-simple-select-label">Struc</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"

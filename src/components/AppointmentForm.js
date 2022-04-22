@@ -24,7 +24,7 @@ const apptForm = {
 }
 
 
-function AppointmentForm({ doggos, lessons }) {
+function AppointmentForm({ doggos, lessons, setAppointments }) {
     const [newApptForm, setNewApptForm] = useState(apptForm)
     const [value, setValue] = React.useState('Controlled');
 
@@ -41,7 +41,7 @@ function AppointmentForm({ doggos, lessons }) {
             body: JSON.stringify(newApptForm)
         })
             .then(resp => resp.json())
-            .then(console.log)
+            .then(app => setAppointments(prev => [...prev, app]))
         e.target.reset()
     }
 
