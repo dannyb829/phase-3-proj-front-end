@@ -12,7 +12,7 @@ function DoggoList({doggos, trainers}) {
 
     return (
         <>
-            <h2>Doggo list here</h2>
+            <h2>Dogs in training</h2>
             <Stack direction='row'>
                 <Grid direction='row' container spacing={4}>
                     {itemToDisplay}

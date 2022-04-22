@@ -15,7 +15,7 @@ function OwnersList({ owners, setOwners }) {
 
     return (
         <>
-            <h2>Owner list here</h2>
+            <h2>Dog Owners</h2>
             <Stack driection='row'>
                 <Grid direction='row' container spacing={4}>
                     {itemToDisplay}

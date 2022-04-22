@@ -8,7 +8,7 @@ import OwnersList from './OwnersList';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
+function InfoSection({ user, trainers, setTrainers, owners, setOwners }) {
     const [dataToDisplay ,setDataToDisplay] = useState('trainer') 
     const [doggos ,setDoggos] = useState([]) 
 
@@ -44,6 +44,8 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
     }
 
     return (
+        <>
+        <Button component={Link} label="Home" to="/" variant='outlined' style={{float:'right', top:'2em', right:'2em'}}>Logout</Button>
         <Stack direction="row">
             <Box id='info-page' sx={{ ml: 2, pr: 2, width: 'fit-content', borderRadius: 2}}>
                 <Box component={Link} label="Home" to="/" style={{ height: '50px' }}>
@@ -61,6 +63,7 @@ function InfoSection({user, trainers, setTrainers, owners, setOwners}) {
                 {displayData()}
             </Box>
         </Stack>
+        </>
     );
 }
 

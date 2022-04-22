@@ -18,7 +18,7 @@ function TrainerList({ user, trainers }) {
 
     return (
         <>
-            <h2>Trainer list here</h2>
+            <h2>Current Trainers</h2>
             <Stack direction='row'>
                 <Grid direction='row' container spacing={3}>
                 {itemToDisplay}
