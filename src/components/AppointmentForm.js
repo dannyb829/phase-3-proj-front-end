@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { border, textAlign } from '@mui/system';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -60,11 +61,11 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
 
                 <div>
                     <Grid container spacing={1}>
-                        <Grid item sm={8}>
-                            <Typography style={{ fontSize: "2rem" }}>Sign Up for a Lesson</Typography>
+                        <Grid item sm={12}>
+                            <Typography style={{ fontSize: "1.5rem" }}>Sign Up for a Lesson</Typography>
                         </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item sm={4}>
+                        <Grid container spacing={1}>
+                            <Grid item sm={3}>
                                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                                     <InputLabel id="demo-simple-select-helper-label">Lesson</InputLabel>
                                     <Select
@@ -82,7 +83,7 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
                                 </FormControl>
                             </Grid>
 
-                            <Grid item sm={4}>
+                            <Grid item sm={3}>
                                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                                     <InputLabel id="demo-simple-select-helper-label">Dog</InputLabel>
                                     <Select
@@ -99,10 +100,23 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
                                 </FormControl>
                             </Grid>
 
-                            <Grid item sm={4}>
-                            <input name='date' type='date' onChange={handleApptForm} value={newApptForm.date}></input>
+                            <Grid item sm={3}>
+                                <input 
+                                    name='date' 
+                                    type='date' 
+                                    onChange={handleApptForm} 
+                                    value={newApptForm.date}
+                                    style={{ 
+                                        padding: 17, 
+                                        marginTop: 9, 
+                                        borderColor: "#dbdbdb", 
+                                        borderWidth: "thin", 
+                                        borderRadius: 5,
+                                        fontFamily: 'arial',
+                                        color: '#525252'}}
+                                    ></input>
 
-                            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <DatePicker
                                     label="Date"
                                     onChange={handleApptForm} 
@@ -112,11 +126,10 @@ function AppointmentForm({ doggos, lessons, setAppointments }) {
                             </LocalizationProvider> */}
                             </Grid>
 
+                            <Grid item sm={3} sx={{ mt: 2}}>
+                                <Button variant="contained" onClick={handleSubmitAppt} style={{ backgroundColor: "#3bb611" }}>Submit</Button>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item sm={4}>
-                        
-                        <Button variant="contained" onClick={handleSubmitAppt} style={{ backgroundColor: "#3bb611" }}>Submit</Button>
                     </Grid>
                 </div>
             </Box>
